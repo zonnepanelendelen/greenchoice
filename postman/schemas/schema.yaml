@@ -5,14 +5,36 @@ info:
   description: Enable GreenChoice customer verification, highlighting ZonnepanelenDelen projects in GreenChoice app and interest period payment verifications
 
 paths:
-  /customer/{gcCustomerId}/verify:
+  /customer/{customer_id}/verify:
     parameters:
-      - name: gcCustomerId
-        description: The customer id as a GreenChoice client
+      - name: customer_id
+        description: The unique identifier as a GreenChoice customer
         in: path
         required: true
         schema:
-          $ref: '#/components/schemas/gcCustomerId'
+          $ref: '#/components/schemas/customer_id'
+  /zpd/projects/{project_uuid}:
+    parameters:
+      - name: project_uuid
+        description: The unique identifier of a ZonnepanelenDelen project 
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/project_uuid'
+  /zpd/projects/{project_uuid}/interest_payment/{interest_payment_uuid}:
+    parameters:
+      - name: project_uuid
+        description: The unique identifier of a ZonnepanelenDelen project 
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/project_uuid/'
+      - name: interest_payment_uuid
+        description: The unique identifier of an interest payment for a defined period
+        in: path
+        required: true
+        schema:
+          $ref: '#/components/schemas/interest_payment_uuid'
   /spacecrafts/{spacecraftId}:
     parameters:
       - name: spacecraftId
@@ -44,12 +66,34 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    gcCustomerId:
-      description: The unique identifier of a GreenChoice customer
+    customer_id:
+      description: The unique identifier as a GreenChoice customer
       type: string
+    investor_uuid:
+      description: The unique identifier as a ZonnepanelenDelen investor
+      type: string
+      format: uuid
+    project_uuid:
+      description: The unique identifier of a ZonnepanelenDelen project 
+      type: string
+      format: uuid
+    interest_payment_uuid:
+      description: The unique identifier of an interest payment for a defined period
+      type: string
+      format: uuid
     SpacecraftId:
       description: The unique identifier of a spacecraft
       type: string
+    Customer:
+      type: object
+      required:
+        - id
+        - investor_uuid
+      properties:
+        id:
+          $ref: '#/components/schemas/customer_id'
+        investor_uuid:
+          $ref: '#/components/schemas/investor_uuid'
     Spacecraft:
       type: object
       required:
