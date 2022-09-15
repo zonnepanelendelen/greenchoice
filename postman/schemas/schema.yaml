@@ -57,35 +57,6 @@ paths:
               required: true
               schema:
                   $ref: "#/components/schemas/interest_payment_uuid"
-    /spacecrafts/{spacecraftId}:
-        parameters:
-            - name: spacecraftId
-              description: The unique identifier of the spacecraft
-              in: path
-              required: true
-              schema:
-                  $ref: "#/components/schemas/SpacecraftId"
-        get:
-            summary: Read a spacecraft
-            responses:
-                "200":
-                    description: The spacecraft corresponding to the provided `spacecraftId`
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/Spacecraft"
-                404:
-                    description: No spacecraft found for the provided `spacecraftId`
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/Error"
-                500:
-                    description: Unexpected error
-                    content:
-                        application/json:
-                            schema:
-                                $ref: "#/components/schemas/Error"
 components:
     schemas:
         customer_id:
@@ -150,9 +121,6 @@ components:
                     type: string
                 address:
                     $ref: "#/components/schemas/address"
-        SpacecraftId:
-            description: The unique identifier of a spacecraft
-            type: string
         Spacecraft:
             type: object
             required:
