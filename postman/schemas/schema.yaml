@@ -35,6 +35,30 @@ paths:
                         application/json:
                             schema:
                                 $ref: "#/components/schemas/Error"
+    /zpd/projects:
+        post:
+            summary: A new ZonnepanelenDelen project was created
+            requestBody:
+                description: ZonnepanelenDelen project details
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/project"
+            responses:
+                201:
+                    description: The project was created
+                400:
+                    description: No project found for the provided `project_uuid` already exists
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+                500:
+                    description: Unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
     /zpd/projects/{project_uuid}:
         parameters:
             - name: project_uuid
@@ -43,6 +67,29 @@ paths:
               required: true
               schema:
                   $ref: "#/components/schemas/project_uuid"
+        put:
+            summary: Update project details
+            requestBody:
+                description: ZonnepanelenDelen project details
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/project"
+            responses:
+                200:
+                    description: The project corresponding to the provided `project_id` has been updated
+                404:
+                    description: No project found for the provided `project_id`
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+                500:
+                    description: Unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
     /zpd/projects/{project_uuid}/interest_payment/{interest_payment_uuid}:
         parameters:
             - name: project_uuid
@@ -121,6 +168,22 @@ components:
                     type: string
                 address:
                     $ref: "#/components/schemas/address"
+        project:
+            type: object
+            required:
+                - name
+                - url
+                - state
+            properties:
+                name:
+                    type: string
+                url:
+                    type: string
+                state:
+                    type: string
+                    enum:
+                        - TBD
+                        - TBD
         Spacecraft:
             type: object
             required:
