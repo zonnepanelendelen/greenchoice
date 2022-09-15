@@ -5,7 +5,7 @@ info:
     description: Enable GreenChoice customer verification, highlighting ZonnepanelenDelen projects in GreenChoice app and interest period payment verifications
 
 paths:
-    /customer/{customer_id}/verify:
+    /customers/{customer_id}/verify:
         parameters:
             - name: customer_id
               description: The unique identifier as a GreenChoice customer
@@ -81,10 +81,7 @@ components:
             description: The unique identifier of an interest payment for a defined period
             type: string
             format: uuid
-        SpacecraftId:
-            description: The unique identifier of a spacecraft
-            type: string
-        Customer:
+        customer:
             type: object
             required:
                 - id
@@ -94,6 +91,9 @@ components:
                     $ref: "#/components/schemas/customer_id"
                 investor_uuid:
                     $ref: "#/components/schemas/investor_uuid"
+        SpacecraftId:
+            description: The unique identifier of a spacecraft
+            type: string
         Spacecraft:
             type: object
             required:
