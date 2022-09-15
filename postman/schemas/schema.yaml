@@ -3,16 +3,38 @@ info:
     version: "1.0.0"
     title: "GreenChoice ZonnepanelenDelen integration"
     description: Enable GreenChoice customer verification, highlighting ZonnepanelenDelen projects in GreenChoice app and interest period payment verifications
-
 paths:
-    /customers/{customer_id}/verify:
+    /customers/{customer_id}:
         parameters:
             - name: customer_id
-              description: The unique identifier as a GreenChoice customer
+              description: GreenChoice customer identifier/number, 
               in: path
               required: true
               schema:
                   $ref: "#/components/schemas/customer_id"
+        put:
+            summary: Verify if a ZonnepanelenDelen investor is a GreenChoice customer
+            requestBody:
+                description: ZonnepanelenDelen investor details
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/customer"
+            responses:
+                204:
+                    description: The customer corresponding to the provided `customer_id` is verified customer of GreenChoice
+                404:
+                    description: No customer found for the provided `customer_id`
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+                500:
+                    description: Unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
     /zpd/projects/{project_uuid}:
         parameters:
             - name: project_uuid
@@ -81,16 +103,53 @@ components:
             description: The unique identifier of an interest payment for a defined period
             type: string
             format: uuid
+        address:
+            type: object
+            required:
+                - address_line_primary
+                - city
+                - postal_code
+            properties:
+                address_line_primary:
+                    type: string
+                    description: Street name
+                address_line_secondary:
+                    type: string
+                    description: House number
+                city:
+                    type: string
+                    description: City
+                region:
+                    type: string
+                    description: Region, Province, State etc.
+                country:
+                    type: string
+                    description: Country code
+                postal_code:
+                    type: string
+                    description: Dutch Postal Code (e.g. 1031 HD)
         customer:
             type: object
             required:
                 - id
                 - investor_uuid
+                - email
+                - first_name
+                - last_name
             properties:
                 id:
                     $ref: "#/components/schemas/customer_id"
                 investor_uuid:
                     $ref: "#/components/schemas/investor_uuid"
+                email:
+                    type: string
+                    format: email
+                first_name:
+                    type: string
+                last_name:
+                    type: string
+                address:
+                    $ref: "#/components/schemas/address"
         SpacecraftId:
             description: The unique identifier of a spacecraft
             type: string

@@ -1,0 +1,368 @@
+{
+	"info": {
+		"_postman_id": "007c168a-24f3-458a-8dc2-c6557819c26e",
+		"name": "GreenChoice",
+		"description": "Enable GreenChoice customer verification, highlighting ZonnepanelenDelen projects in GreenChoice app and interest period payment verifications",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Verify if a ZonnepanelenDelen investor is a GreenChoice customer",
+			"id": "d7c34a9f-a054-4092-9064-7ffa4528f5ba",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/customers/:customer_id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"customers",
+						":customer_id"
+					],
+					"variable": [
+						{
+							"id": "e092f823-85d2-4aa0-8fae-5487162abf6d",
+							"key": "customer_id",
+							"value": "c",
+							"description": "(Required) The unique identifier as a GreenChoice customer"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "c209eaa2-89bd-458d-89af-51c4f34f88ab",
+					"name": "The customer corresponding to the provided `customer_id` is verified customer of GreenChoice",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-Api-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/customers/:customer_id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"customers",
+								":customer_id"
+							],
+							"variable": [
+								{
+									"key": "customer_id",
+									"value": "c",
+									"description": "(Required) The unique identifier as a GreenChoice customer"
+								}
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": ""
+				},
+				{
+					"id": "1ce29132-f00e-474f-a6bb-fe3d888e35c0",
+					"name": "No customer found for the provided `customer_id`",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-Api-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/customers/:customer_id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"customers",
+								":customer_id"
+							],
+							"variable": [
+								{
+									"key": "customer_id",
+									"value": "c",
+									"description": "(Required) The unique identifier as a GreenChoice customer"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"message\": \"in Excepteur cillum et\"\n}"
+				},
+				{
+					"id": "6ae74825-8209-4b0a-b627-1a9908594df8",
+					"name": "Unexpected error",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-Api-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/customers/:customer_id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"customers",
+								":customer_id"
+							],
+							"variable": [
+								{
+									"key": "customer_id",
+									"value": "c",
+									"description": "(Required) The unique identifier as a GreenChoice customer"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"message\": \"in Excepteur cillum et\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Read a spacecraft",
+			"id": "6c440af0-f97b-41d9-8f62-a9a4b3b74856",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/spacecrafts/:spacecraftId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"spacecrafts",
+						":spacecraftId"
+					],
+					"variable": [
+						{
+							"id": "ab975494-4c0e-4916-9ca4-f27acc50bb32",
+							"key": "spacecraftId",
+							"value": "consectetur dolore",
+							"description": "(Required) The unique identifier of the spacecraft"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "721a6bf8-0859-47b7-8a93-364cfc134214",
+					"name": "The spacecraft corresponding to the provided `spacecraftId`",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-Api-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/spacecrafts/:spacecraftId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"spacecrafts",
+								":spacecraftId"
+							],
+							"variable": [
+								{
+									"key": "spacecraftId",
+									"value": "consectetur dolore",
+									"description": "(Required) The unique identifier of the spacecraft"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"id\": \"<string>\",\n  \"name\": \"consectetur aliqua \",\n  \"type\": \"capsule\",\n  \"description\": \"irure ut exercitati\"\n}"
+				},
+				{
+					"id": "942a4f6f-a924-40fb-9883-02449d5fa8a6",
+					"name": "No spacecraft found for the provided `spacecraftId`",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-Api-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/spacecrafts/:spacecraftId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"spacecrafts",
+								":spacecraftId"
+							],
+							"variable": [
+								{
+									"key": "spacecraftId",
+									"value": "consectetur dolore",
+									"description": "(Required) The unique identifier of the spacecraft"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"message\": \"in Excepteur cillum et\"\n}"
+				},
+				{
+					"id": "0ab086d6-fae5-4065-b3c6-b3dc694ea702",
+					"name": "Unexpected error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-Api-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/spacecrafts/:spacecraftId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"spacecrafts",
+								":spacecraftId"
+							],
+							"variable": [
+								{
+									"key": "spacecraftId",
+									"value": "consectetur dolore",
+									"description": "(Required) The unique identifier of the spacecraft"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"message\": \"in Excepteur cillum et\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "X-Api-Key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "<API Key>",
+				"type": "string"
+			},
+			{
+				"key": "in",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"id": "989a56ae-8f79-4822-82eb-47acab86beae",
+			"key": "baseUrl",
+			"value": "/",
+			"type": "string"
+		}
+	]
+}
