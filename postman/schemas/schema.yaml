@@ -227,9 +227,12 @@ components:
                     description: A human readable error message
                     type: string
     securitySchemes:
-        ApiKey:
-            type: apiKey
-            in: header
-            name: X-Api-Key
+        oauth2:
+            type: oauth2
+            flows:
+                clientCredentials:
+                    tokenUrl: https://sso-dev.greenchoice.nl/connect/token
+                    scopes:
+                        openid: openid
 security:
     - ApiKey: []
