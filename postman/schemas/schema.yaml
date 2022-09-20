@@ -90,7 +90,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: "#/components/schemas/Error"
-    /zpd/projects/{project_uuid}/interest_payment/{interest_payment_uuid}:
+    /projects/{project_uuid}/interest_payment/{interest_payment_uuid}:
         parameters:
             - name: project_uuid
               description: The unique identifier of a ZonnepanelenDelen project
@@ -197,27 +197,6 @@ components:
                     enum:
                         - TBD
                         - TBD
-        Spacecraft:
-            type: object
-            required:
-                - id
-                - name
-                - type
-            properties:
-                id:
-                    $ref: "#/components/schemas/SpacecraftId"
-                name:
-                    type: string
-                type:
-                    type: string
-                    enum:
-                        - capsule
-                        - probe
-                        - satellite
-                        - spaceplane
-                        - station
-                description:
-                    type: string
         Error:
             type: object
             required:
