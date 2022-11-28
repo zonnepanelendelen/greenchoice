@@ -1,15 +1,15 @@
 {
 	"info": {
-		"_postman_id": "09ac9968-4deb-443a-96c3-5733cb670363",
+		"_postman_id": "b8a65b8b-35ad-40bc-89d5-a3e6a7a6be3a",
 		"name": "GreenChoice",
 		"description": "Enable GreenChoice customer verification, highlighting ZonnepanelenDelen projects in GreenChoice app and interest period payment verifications",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "12576312-09ac9968-4deb-443a-96c3-5733cb670363"
+		"_uid": "12576312-b8a65b8b-35ad-40bc-89d5-a3e6a7a6be3a"
 	},
 	"item": [
 		{
 			"name": "Verify if a ZonnepanelenDelen investor is a GreenChoice customer",
-			"id": "f1843443-790f-4fd8-b7b7-744416488e80",
+			"id": "ea8273b8-8699-4598-8ff4-5aaa8d62ecb6",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -41,15 +41,14 @@
 			},
 			"response": [
 				{
-					"id": "38917ca6-7176-4d25-84d6-c8b46d9bcc5e",
+					"id": "5e8ea622-cf1e-4222-a0cb-bf7a526d9745",
 					"name": "The customer corresponding to the provided `customer_id` is verified customer of GreenChoice",
 					"originalRequest": {
 						"method": "PUT",
 						"header": [
 							{
-								"description": "Added as a part of security scheme: apikey",
-								"key": "X-Api-Key",
-								"value": "<API Key>"
+								"key": "Accept",
+								"value": "application/json"
 							}
 						],
 						"url": {
@@ -73,7 +72,6 @@
 					"status": "No Content",
 					"code": 204,
 					"_postman_previewlanguage": "text",
-					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -81,19 +79,17 @@
 						}
 					],
 					"cookie": [],
-					"responseTime": null,
 					"body": ""
 				},
 				{
-					"id": "cd9a792b-1533-4126-8140-03d80ba892f9",
+					"id": "03252ae2-68f3-4b6c-82ad-e61f84d1f951",
 					"name": "No customer found for the provided `customer_id`",
 					"originalRequest": {
 						"method": "PUT",
 						"header": [
 							{
-								"description": "Added as a part of security scheme: apikey",
-								"key": "X-Api-Key",
-								"value": "<API Key>"
+								"key": "Accept",
+								"value": "application/json"
 							}
 						],
 						"url": {
@@ -117,7 +113,6 @@
 					"status": "Not Found",
 					"code": 404,
 					"_postman_previewlanguage": "json",
-					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -125,19 +120,17 @@
 						}
 					],
 					"cookie": [],
-					"responseTime": null,
 					"body": "{\n  \"message\": \"in Excepteur cillum et\"\n}"
 				},
 				{
-					"id": "f760cc12-2ff4-49be-a650-a517f54c50db",
+					"id": "5b2bae6b-99b8-45b8-b9cf-57f3b5e72bef",
 					"name": "Unexpected error",
 					"originalRequest": {
 						"method": "PUT",
 						"header": [
 							{
-								"description": "Added as a part of security scheme: apikey",
-								"key": "X-Api-Key",
-								"value": "<API Key>"
+								"key": "Accept",
+								"value": "application/json"
 							}
 						],
 						"url": {
@@ -161,7 +154,6 @@
 					"status": "Internal Server Error",
 					"code": 500,
 					"_postman_previewlanguage": "json",
-					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -169,14 +161,13 @@
 						}
 					],
 					"cookie": [],
-					"responseTime": null,
 					"body": "{\n  \"message\": \"in Excepteur cillum et\"\n}"
 				}
 			]
 		},
 		{
 			"name": "Read a spacecraft",
-			"id": "bf9ff809-7cc8-4e28-b7dd-fc6dfd689c16",
+			"id": "c776ac44-da4f-4032-9092-0ea1f2634e18",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -208,15 +199,14 @@
 			},
 			"response": [
 				{
-					"id": "fb913fde-169d-4452-b672-6ecc4ce39197",
+					"id": "156177b8-8561-4261-be95-a2f18cf05ba0",
 					"name": "The spacecraft corresponding to the provided `spacecraftId`",
 					"originalRequest": {
 						"method": "GET",
 						"header": [
 							{
-								"description": "Added as a part of security scheme: apikey",
-								"key": "X-Api-Key",
-								"value": "<API Key>"
+								"key": "Accept",
+								"value": "application/json"
 							}
 						],
 						"url": {
@@ -240,7 +230,6 @@
 					"status": "OK",
 					"code": 200,
 					"_postman_previewlanguage": "json",
-					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -248,19 +237,17 @@
 						}
 					],
 					"cookie": [],
-					"responseTime": null,
 					"body": "{\n  \"id\": \"<string>\",\n  \"name\": \"consectetur aliqua \",\n  \"type\": \"capsule\",\n  \"description\": \"irure ut exercitati\"\n}"
 				},
 				{
-					"id": "65dc81c3-5e71-479b-b08d-57d14c6817fd",
+					"id": "fd744ece-2438-46a0-85ef-d84facbd0c1e",
 					"name": "No spacecraft found for the provided `spacecraftId`",
 					"originalRequest": {
 						"method": "GET",
 						"header": [
 							{
-								"description": "Added as a part of security scheme: apikey",
-								"key": "X-Api-Key",
-								"value": "<API Key>"
+								"key": "Accept",
+								"value": "application/json"
 							}
 						],
 						"url": {
@@ -284,7 +271,6 @@
 					"status": "Not Found",
 					"code": 404,
 					"_postman_previewlanguage": "json",
-					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -292,19 +278,17 @@
 						}
 					],
 					"cookie": [],
-					"responseTime": null,
 					"body": "{\n  \"message\": \"in Excepteur cillum et\"\n}"
 				},
 				{
-					"id": "f1c12916-421c-4945-9097-3726ff6e5923",
+					"id": "2b069067-9beb-455b-bb5c-ef0e2be177c6",
 					"name": "Unexpected error",
 					"originalRequest": {
 						"method": "GET",
 						"header": [
 							{
-								"description": "Added as a part of security scheme: apikey",
-								"key": "X-Api-Key",
-								"value": "<API Key>"
+								"key": "Accept",
+								"value": "application/json"
 							}
 						],
 						"url": {
@@ -328,7 +312,6 @@
 					"status": "Internal Server Error",
 					"code": 500,
 					"_postman_previewlanguage": "json",
-					"_postman_previewtype": "html",
 					"header": [
 						{
 							"key": "Content-Type",
@@ -336,7 +319,6 @@
 						}
 					],
 					"cookie": [],
-					"responseTime": null,
 					"body": "{\n  \"message\": \"in Excepteur cillum et\"\n}"
 				}
 			]

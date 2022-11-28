@@ -176,27 +176,6 @@ components:
                     type: string
                 address:
                     $ref: "#/components/schemas/address"
-                investment:
-                    $ref: "#/components/schemas/investment"
-        investment:
-            type: object
-            required:
-                - project
-                - total_shares
-                - total_amount
-                - unit_share_amount
-                - unit_share_currency
-            properties:
-                project:
-                    $ref: "#/components/schemas/project"
-                total_shares:
-                    type: integer
-                total_amount:
-                    type: integer
-                unit_share_amount:
-                    type: number
-                unit_share_currency:
-                    type: string
         project:
             type: object
             required:
