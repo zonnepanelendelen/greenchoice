@@ -7,7 +7,7 @@ paths:
     /customers/{customer_id}:
         parameters:
             - name: customer_id
-              description: GreenChoice customer identifier/number, 
+              description: GreenChoice customer identifier/number,
               in: path
               required: true
               schema:
@@ -108,7 +108,7 @@ components:
     schemas:
         uuid:
             type: string
-            pattern: '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
+            pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
             minLength: 36
             maxLength: 36
         customer_id:
@@ -118,17 +118,17 @@ components:
             description: The unique identifier as a ZonnepanelenDelen investor
             type: string
             format: uuid
-            $ref: '#/components/schemas/uuid'
+            $ref: "#/components/schemas/uuid"
         project_uuid:
             description: The unique identifier of a ZonnepanelenDelen project
             type: string
             format: uuid
-            $ref: '#/components/schemas/uuid'
+            $ref: "#/components/schemas/uuid"
         interest_payment_uuid:
             description: The unique identifier of an interest payment for a defined period
             type: string
             format: uuid
-            $ref: '#/components/schemas/uuid'
+            $ref: "#/components/schemas/uuid"
         address:
             type: object
             required:
@@ -208,7 +208,7 @@ components:
                 uuid:
                     type: string
                     format: uuid
-                    $ref: '#/components/schemas/uuid'
+                    $ref: "#/components/schemas/uuid"
                 name:
                     type: string
                 url:
