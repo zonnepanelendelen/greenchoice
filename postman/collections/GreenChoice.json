@@ -1,0 +1,542 @@
+{
+	"info": {
+		"_postman_id": "d8303f4b-3541-42a4-8457-df07e22408ba",
+		"name": "GreenChoice",
+		"description": "Enable GreenChoice customer verification, highlighting ZonnepanelenDelen projects in GreenChoice app and interest period payment verifications",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "12576312-d8303f4b-3541-42a4-8457-df07e22408ba"
+	},
+	"item": [
+		{
+			"name": "projects",
+			"item": [
+				{
+					"name": "A new ZonnepanelenDelen project was created",
+					"id": "584463de-6fb4-417a-ae0c-a09d07e1b991",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"uuid\": \"e5fa483d-2199-c330-0dae-1b4d9e63a8be\",\n  \"name\": \"pariatur\",\n  \"url\": \"esse \",\n  \"state\": \"TBD\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/projects",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "792b12d4-ffe3-4a3e-b58f-a890a7338bdb",
+							"name": "The project was created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"uuid\": \"e5fa483d-2199-c330-0dae-1b4d9e63a8be\",\n  \"name\": \"pariatur\",\n  \"url\": \"esse \",\n  \"state\": \"TBD\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/projects",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"projects"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "fd1c2a49-80d5-44cb-a7b7-6860abdeaaa4",
+							"name": "No project found for the provided `project_uuid` already exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"uuid\": \"e5fa483d-2199-c330-0dae-1b4d9e63a8be\",\n  \"name\": \"pariatur\",\n  \"url\": \"esse \",\n  \"state\": \"TBD\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/projects",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"projects"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"incididunt nisi qui\"\n}"
+						},
+						{
+							"id": "de55aa7f-c6db-46e3-b819-ca83e0da8d6d",
+							"name": "Unexpected error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"uuid\": \"e5fa483d-2199-c330-0dae-1b4d9e63a8be\",\n  \"name\": \"pariatur\",\n  \"url\": \"esse \",\n  \"state\": \"TBD\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/projects",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"projects"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"incididunt nisi qui\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update project details",
+					"id": "f81820ed-5595-478c-997e-50abe01b8141",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"ut aliq\",\n  \"url\": \"adipisicing nostrud\",\n  \"state\": \"TBD\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/projects/:project_uuid",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"projects",
+								":project_uuid"
+							],
+							"variable": [
+								{
+									"key": "project_uuid",
+									"value": "d477a571-b337-09ff-4ec7-1ffa55a8553c",
+									"description": "(Required) The unique identifier of a ZonnepanelenDelen project"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "5c1c7557-c8cb-41b7-90e0-6b0ef8540925",
+							"name": "The project corresponding to the provided `project_id` has been updated",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"ut aliq\",\n  \"url\": \"adipisicing nostrud\",\n  \"state\": \"TBD\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/projects/:project_uuid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"projects",
+										":project_uuid"
+									],
+									"variable": [
+										{
+											"key": "project_uuid",
+											"value": "d477a571-b337-09ff-4ec7-1ffa55a8553c",
+											"description": "(Required) The unique identifier of a ZonnepanelenDelen project"
+										}
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "4bbcc266-d2aa-4886-ad90-833e44477ba4",
+							"name": "No project found for the provided `project_id`",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"ut aliq\",\n  \"url\": \"adipisicing nostrud\",\n  \"state\": \"TBD\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/projects/:project_uuid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"projects",
+										":project_uuid"
+									],
+									"variable": [
+										{
+											"key": "project_uuid",
+											"value": "d477a571-b337-09ff-4ec7-1ffa55a8553c",
+											"description": "(Required) The unique identifier of a ZonnepanelenDelen project"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"incididunt nisi qui\"\n}"
+						},
+						{
+							"id": "97fefd56-a4bb-4a19-881e-86920d2cf8b7",
+							"name": "Unexpected error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"uuid\": \"<string>\",\n  \"name\": \"ut aliq\",\n  \"url\": \"adipisicing nostrud\",\n  \"state\": \"TBD\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/projects/:project_uuid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"projects",
+										":project_uuid"
+									],
+									"variable": [
+										{
+											"key": "project_uuid",
+											"value": "d477a571-b337-09ff-4ec7-1ffa55a8553c",
+											"description": "(Required) The unique identifier of a ZonnepanelenDelen project"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"incididunt nisi qui\"\n}"
+						}
+					]
+				}
+			],
+			"id": "95cc970e-1c44-4f59-967d-2767c9d35633"
+		},
+		{
+			"name": "Verify if a ZonnepanelenDelen investor is a GreenChoice customer",
+			"id": "1909e4ec-a315-442c-9dbf-96115b137a9c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"<string>\",\n  \"investor_uuid\": \"b9044712-dad5-90c5-4066-f11fc90c1718\",\n  \"email\": \"F2AfWGi@fiuVNvtSevIjlk.qoiz\",\n  \"first_name\": \"nostrud occaecat sed\",\n  \"last_name\": \"\",\n  \"address\": {\n    \"address_line_primary\": \"est consequat Lorem ani\",\n    \"city\": \"velit veniam sed\",\n    \"postal_code\": \"adipisicing aliqua do veniam\",\n    \"address_line_secondary\": \"ad ex\",\n    \"region\": \"elit\",\n    \"country\": \"magna nulla adipi\"\n  },\n  \"investment\": {\n    \"project\": {\n      \"uuid\": \"ede00181-bd20-a3dc-5107-5d99f71f0a52\",\n      \"name\": \"sint commodo in occaecat\",\n      \"url\": \"nulla Ut minim ad\",\n      \"state\": \"TBD\"\n    },\n    \"total_shares\": 18232175,\n    \"total_amount\": -37162409,\n    \"unit_share_amount\": -95371770.59979172,\n    \"unit_share_currency\": \"ullamco\"\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/customers/:customer_id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"customers",
+						":customer_id"
+					],
+					"variable": [
+						{
+							"key": "customer_id",
+							"value": "labore sit",
+							"description": "(Required) GreenChoice customer identifier/number,"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "e7020020-888b-4dce-95b8-cb0baa21aa79",
+					"name": "The customer corresponding to the provided `customer_id` is verified customer of GreenChoice",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"<string>\",\n  \"investor_uuid\": \"b9044712-dad5-90c5-4066-f11fc90c1718\",\n  \"email\": \"F2AfWGi@fiuVNvtSevIjlk.qoiz\",\n  \"first_name\": \"nostrud occaecat sed\",\n  \"last_name\": \"\",\n  \"address\": {\n    \"address_line_primary\": \"est consequat Lorem ani\",\n    \"city\": \"velit veniam sed\",\n    \"postal_code\": \"adipisicing aliqua do veniam\",\n    \"address_line_secondary\": \"ad ex\",\n    \"region\": \"elit\",\n    \"country\": \"magna nulla adipi\"\n  },\n  \"investment\": {\n    \"project\": {\n      \"uuid\": \"ede00181-bd20-a3dc-5107-5d99f71f0a52\",\n      \"name\": \"sint commodo in occaecat\",\n      \"url\": \"nulla Ut minim ad\",\n      \"state\": \"TBD\"\n    },\n    \"total_shares\": 18232175,\n    \"total_amount\": -37162409,\n    \"unit_share_amount\": -95371770.59979172,\n    \"unit_share_currency\": \"ullamco\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/customers/:customer_id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"customers",
+								":customer_id"
+							],
+							"variable": [
+								{
+									"key": "customer_id",
+									"value": "labore sit",
+									"description": "(Required) GreenChoice customer identifier/number,"
+								}
+							]
+						}
+					},
+					"status": "Accepted",
+					"code": 202,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"id": "1a6badbc-f6f9-4f44-8d1f-e1b77ca6280a",
+					"name": "No customer found for the provided `customer_id`",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"<string>\",\n  \"investor_uuid\": \"b9044712-dad5-90c5-4066-f11fc90c1718\",\n  \"email\": \"F2AfWGi@fiuVNvtSevIjlk.qoiz\",\n  \"first_name\": \"nostrud occaecat sed\",\n  \"last_name\": \"\",\n  \"address\": {\n    \"address_line_primary\": \"est consequat Lorem ani\",\n    \"city\": \"velit veniam sed\",\n    \"postal_code\": \"adipisicing aliqua do veniam\",\n    \"address_line_secondary\": \"ad ex\",\n    \"region\": \"elit\",\n    \"country\": \"magna nulla adipi\"\n  },\n  \"investment\": {\n    \"project\": {\n      \"uuid\": \"ede00181-bd20-a3dc-5107-5d99f71f0a52\",\n      \"name\": \"sint commodo in occaecat\",\n      \"url\": \"nulla Ut minim ad\",\n      \"state\": \"TBD\"\n    },\n    \"total_shares\": 18232175,\n    \"total_amount\": -37162409,\n    \"unit_share_amount\": -95371770.59979172,\n    \"unit_share_currency\": \"ullamco\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/customers/:customer_id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"customers",
+								":customer_id"
+							],
+							"variable": [
+								{
+									"key": "customer_id",
+									"value": "labore sit",
+									"description": "(Required) GreenChoice customer identifier/number,"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"message\": \"incididunt nisi qui\"\n}"
+				},
+				{
+					"id": "3488d53e-08c0-443d-b59c-4ff17a6decf2",
+					"name": "Unexpected error",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"<string>\",\n  \"investor_uuid\": \"b9044712-dad5-90c5-4066-f11fc90c1718\",\n  \"email\": \"F2AfWGi@fiuVNvtSevIjlk.qoiz\",\n  \"first_name\": \"nostrud occaecat sed\",\n  \"last_name\": \"\",\n  \"address\": {\n    \"address_line_primary\": \"est consequat Lorem ani\",\n    \"city\": \"velit veniam sed\",\n    \"postal_code\": \"adipisicing aliqua do veniam\",\n    \"address_line_secondary\": \"ad ex\",\n    \"region\": \"elit\",\n    \"country\": \"magna nulla adipi\"\n  },\n  \"investment\": {\n    \"project\": {\n      \"uuid\": \"ede00181-bd20-a3dc-5107-5d99f71f0a52\",\n      \"name\": \"sint commodo in occaecat\",\n      \"url\": \"nulla Ut minim ad\",\n      \"state\": \"TBD\"\n    },\n    \"total_shares\": 18232175,\n    \"total_amount\": -37162409,\n    \"unit_share_amount\": -95371770.59979172,\n    \"unit_share_currency\": \"ullamco\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/customers/:customer_id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"customers",
+								":customer_id"
+							],
+							"variable": [
+								{
+									"key": "customer_id",
+									"value": "labore sit",
+									"description": "(Required) GreenChoice customer identifier/number,"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"message\": \"incididunt nisi qui\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"id": "ec7e2ebf-c62a-4408-92af-56330b3d8df6",
+			"key": "baseUrl",
+			"value": "/",
+			"type": "string"
+		}
+	]
+}

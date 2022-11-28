@@ -1,0 +1,238 @@
+openapi: "3.0.0"
+info:
+    version: "1.0.0"
+    title: "GreenChoice ZonnepanelenDelen integration"
+    description: Enable GreenChoice customer verification, highlighting ZonnepanelenDelen projects in GreenChoice app and interest period payment verifications
+paths:
+    /customers/{customer_id}:
+        parameters:
+            - name: customer_id
+              description: GreenChoice customer identifier/number,
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/customer_id"
+        put:
+            summary: Verify if a ZonnepanelenDelen investor is a GreenChoice customer
+            requestBody:
+                description: ZonnepanelenDelen investor details
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/customer"
+            responses:
+                202:
+                    description: The customer corresponding to the provided `customer_id` is verified customer of GreenChoice
+                404:
+                    description: No customer found for the provided `customer_id`
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+                500:
+                    description: Unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+    /projects:
+        post:
+            summary: A new ZonnepanelenDelen project was created
+            requestBody:
+                description: ZonnepanelenDelen project details
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/project"
+            responses:
+                201:
+                    description: The project was created
+                400:
+                    description: No project found for the provided `project_uuid` already exists
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+                500:
+                    description: Unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+    /projects/{project_uuid}:
+        parameters:
+            - name: project_uuid
+              description: The unique identifier of a ZonnepanelenDelen project
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/project_uuid"
+        put:
+            summary: Update project details
+            requestBody:
+                description: ZonnepanelenDelen project details
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/project"
+            responses:
+                202:
+                    description: The project corresponding to the provided `project_id` has been updated
+                404:
+                    description: No project found for the provided `project_id`
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+                500:
+                    description: Unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+    /projects/{project_uuid}/interest_payment/{interest_payment_uuid}:
+        parameters:
+            - name: project_uuid
+              description: The unique identifier of a ZonnepanelenDelen project
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/project_uuid/"
+            - name: interest_payment_uuid
+              description: The unique identifier of an interest payment for a defined period
+              in: path
+              required: true
+              schema:
+                  $ref: "#/components/schemas/interest_payment_uuid"
+components:
+    schemas:
+        uuid:
+            type: string
+            pattern: "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+            minLength: 36
+            maxLength: 36
+        customer_id:
+            description: The unique identifier as a GreenChoice customer
+            type: string
+        investor_uuid:
+            description: The unique identifier as a ZonnepanelenDelen investor
+            type: string
+            format: uuid
+            $ref: "#/components/schemas/uuid"
+        project_uuid:
+            description: The unique identifier of a ZonnepanelenDelen project
+            type: string
+            format: uuid
+            $ref: "#/components/schemas/uuid"
+        interest_payment_uuid:
+            description: The unique identifier of an interest payment for a defined period
+            type: string
+            format: uuid
+            $ref: "#/components/schemas/uuid"
+        address:
+            type: object
+            required:
+                - address_line_primary
+                - city
+                - postal_code
+            properties:
+                address_line_primary:
+                    type: string
+                    description: Street name
+                address_line_secondary:
+                    type: string
+                    description: House number
+                city:
+                    type: string
+                    description: City
+                region:
+                    type: string
+                    description: Region, Province, State etc.
+                country:
+                    type: string
+                    description: Country code
+                postal_code:
+                    type: string
+                    description: Dutch Postal Code (e.g. 1031 HD)
+        customer:
+            type: object
+            required:
+                - id
+                - investor_uuid
+                - email
+                - first_name
+                - last_name
+            properties:
+                id:
+                    $ref: "#/components/schemas/customer_id"
+                investor_uuid:
+                    $ref: "#/components/schemas/investor_uuid"
+                email:
+                    type: string
+                    format: email
+                first_name:
+                    type: string
+                last_name:
+                    type: string
+                address:
+                    $ref: "#/components/schemas/address"
+                investment:
+                    $ref: "#/components/schemas/investment"
+        investment:
+            type: object
+            required:
+                - project
+                - total_shares
+                - total_amount
+                - unit_share_amount
+                - unit_share_currency
+            properties:
+                project:
+                    $ref: "#/components/schemas/project"
+                total_shares:
+                    type: integer
+                total_amount:
+                    type: integer
+                unit_share_amount:
+                    type: number
+                unit_share_currency:
+                    type: string
+        project:
+            type: object
+            required:
+                - uuid
+                - name
+                - url
+                - state
+            properties:
+                uuid:
+                    type: string
+                    format: uuid
+                    $ref: "#/components/schemas/uuid"
+                name:
+                    type: string
+                url:
+                    type: string
+                state:
+                    type: string
+                    enum:
+                        - TBD
+                        - TBD
+        Error:
+            type: object
+            required:
+                - message
+            properties:
+                message:
+                    description: A human readable error message
+                    type: string
+    securitySchemes:
+        oauth2:
+            type: oauth2
+            flows:
+                clientCredentials:
+                    tokenUrl: https://sso-dev.greenchoice.nl/connect/token
+                    scopes:
+                        openid: openid
+security:
+    - ApiKey: []
