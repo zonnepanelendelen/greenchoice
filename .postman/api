@@ -11,7 +11,6 @@ files[] = {"id":"12576312-d8303f4b-3541-42a4-8457-df07e22408ba","path":"GreenCho
 
 [relations.apiDefinition]
 rootDirectory = postman/schemas
-files[] = {"path":"index.yaml","metaData":{}}
 files[] = {"path":"schema.yaml","metaData":{}}
 
 [relations.apiDefinition.metaData]
